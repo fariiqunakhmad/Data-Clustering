@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
+import partitioning.KMeans;
 
 /**
  *
@@ -26,7 +27,7 @@ public class DataClustering {
      */
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        BufferedReader br = new BufferedReader(new FileReader("src/labeleddata.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("src/data.txt"));
         StringBuilder sb = new StringBuilder();
         String line = br.readLine();
         int lineCounter = 0;
@@ -55,34 +56,40 @@ public class DataClustering {
 //            {2, 3, 1},
 //            {3, 3, 1}
 //        };
-        System.out.println("Labeled Data: ");
-        for (int i = 0; i < dataMula.length; i++) {
 
-            System.out.println("Data " + (i + 1) + ": " + Arrays.toString(dataMula[i]));
-        }
-
-        Scanner scan = new Scanner(System.in);
-        double[] dataTest = new double[dataMula[0].length - 1];
-        System.out.println("");
-        System.out.println("Masukkan Data Baru sebanyak " + (dataMula[0].length - 1) + " element!");
-        for (int i = 0; i < dataMula[0].length - 1; i++) {
-            System.out.print("Elemen " + (i + 1) + ":");
-            dataTest[i] = scan.nextDouble();
-        }
-//        double[] dataTest = new double[]{1, 3};
-
-        System.out.println("");
-        System.out.println("Anda telah selesai memasukkan Data Baru.");
-        System.out.println("Data Baru: ");
-        System.out.println(Arrays.toString(dataTest));
-        System.out.println("");
-        System.out.print("Masukkan nilai k:");
-        int k = scan.nextInt();
-//        int k = 3;
-        System.out.println("");
-        System.out.println("Anda telah selesai memasukkan nilai k.");
-        System.out.println("Nilai k: " + k);
-        System.out.println("");
+//        System.out.println("Labeled Data: ");
+//        for (int i = 0; i < dataMula.length; i++) {
+//
+//            System.out.println("Data " + (i + 1) + ": " + Arrays.toString(dataMula[i]));
+//        }
+        
+        KMeans kmeans = new KMeans();
+    	kmeans.init(dataMula);
+    	kmeans.calculate();
+        
+//
+//        Scanner scan = new Scanner(System.in);
+//        double[] dataTest = new double[dataMula[0].length - 1];
+//        System.out.println("");
+//        System.out.println("Masukkan Data Baru sebanyak " + (dataMula[0].length - 1) + " element!");
+//        for (int i = 0; i < dataMula[0].length - 1; i++) {
+//            System.out.print("Elemen " + (i + 1) + ":");
+//            dataTest[i] = scan.nextDouble();
+//        }
+////        double[] dataTest = new double[]{1, 3};
+//
+//        System.out.println("");
+//        System.out.println("Anda telah selesai memasukkan Data Baru.");
+//        System.out.println("Data Baru: ");
+//        System.out.println(Arrays.toString(dataTest));
+//        System.out.println("");
+//        System.out.print("Masukkan nilai k:");
+//        int k = scan.nextInt();
+////        int k = 3;
+//        System.out.println("");
+//        System.out.println("Anda telah selesai memasukkan nilai k.");
+//        System.out.println("Nilai k: " + k);
+//        System.out.println("");
     }
     
 }
