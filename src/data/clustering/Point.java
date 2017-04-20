@@ -12,55 +12,71 @@ package data.clustering;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
- 
+
 public class Point {
- 
+    private int dimension;
     private double[] position;
     private int cluster = 0;
- 
-    public Point(double[] p)
-    {
-        position=p.clone();
+
+    public Point(double[] p) {
+        position = p.clone();
+        dimension=position.length;
+    }
+
+    public int getDimension() {
+        return dimension;
     }
     
-    public double [] getPosition(){
-        return this.position.clone();
+
+    public double[] getPosition() {
+        return position;
+    }
+
+    public void setPosition(double[] position) {
+        this.position = position;
     }
     
+
     public void setCluster(int n) {
         this.cluster = n;
     }
-    
+
     public int getCluster() {
         return this.cluster;
     }
-    
+
     //Menghitung jarak antara 2 titik
-    protected static double distance(Point p, Point centroid) {
-        return Math.sqrt(Math.pow((centroid.getY() - p.getY()), 2) + Math.pow((centroid.getX() - p.getX()), 2));
-    }
-    
-    //Membuat titik acak
-    protected static Point createRandomPoint(int min, int max) {
-    	Random r = new Random();
-        for (int i = 0; i < Point..length; i++) {
-            Object arr = arr[i];
-            
+    public static double distance(Point p, Point centroid) {
+        double sum = 0.0;
+        for (int i = 0; i < p.getPosition().length; i++) {
+            sum = sum + Math.pow((p.getPosition()[i] - centroid.getPosition()[i]), 2.0);
         }
-    	double x = min + (max - min) * r.nextDouble();
-    	double y = min + (max - min) * r.nextDouble();
-    	return new Point(x,y);
+        return Math.sqrt(sum);
     }
-    
-    protected static List createRandomPoints(int min, int max, int number) {
-    	List points = new ArrayList(number);
-    	for(int i = 0; i < number; i++) {
-    		points.add(createRandomPoint(min,max));
-    	}
-    	return points;
+
+    //Membuat titik acak
+    public static Point createRandomPoint(int lenght, double min, double max) {
+        Random r = new Random();
+        double[] p= new double[lenght];
+        for (int i = 0; i < p.length; i++) {
+            p[i]=min + (max - min) * r.nextDouble();
+        }
+        return new Point(p);
     }
-    
+
+    protected static List createRandomPoints(int lenght, double min, double max, int K) {
+        List points = new ArrayList(K);
+        for (int i = 0; i < K; i++) {
+            points.add(createRandomPoint(lenght, min, max));
+        }
+        return points;
+    }
+
     public String toString() {
-    	return "("+x+","+y+")";
+        String p="(";
+        for (int i = 0; i < position.length; i++) {
+             p+=position[i];
+        }
+        return p+=")";
     }
 }

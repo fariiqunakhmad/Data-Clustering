@@ -5,7 +5,6 @@
  */
 package data.clustering;
 
-import partitioning.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +15,9 @@ import java.util.List;
 
 public class Cluster {
 	
-	public List<Point> points;
-	public Point centroid;
-	public int id;
+	private List<Point> points;
+	private Point centroid;
+	private int id;
 	
 	//Membuat sebuah cluster baru
 	public Cluster(int id) {

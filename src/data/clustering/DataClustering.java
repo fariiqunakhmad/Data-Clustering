@@ -14,6 +14,7 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 import partitioning.KMeans;
+import hierarchical.SingleLinkage;
 
 /**
  *
@@ -56,15 +57,11 @@ public class DataClustering {
 //            {2, 3, 1},
 //            {3, 3, 1}
 //        };
-
 //        System.out.println("Labeled Data: ");
 //        for (int i = 0; i < dataMula.length; i++) {
 //
 //            System.out.println("Data " + (i + 1) + ": " + Arrays.toString(dataMula[i]));
 //        }
-        
-        
-        
 //
         Scanner scan = new Scanner(System.in);
 //        double[] dataTest = new double[dataMula[0].length - 1];
@@ -82,16 +79,44 @@ public class DataClustering {
 //        System.out.println(Arrays.toString(dataTest));
 //        System.out.println("");
         System.out.print("Masukkan nilai K:");
-        int k = scan.nextInt();
-////        int k = 3;
+//        int k = scan.nextInt();
+        int k = 4;
         System.out.println("");
-        System.out.println("Anda telah selesai memasukkan nilai k.");
+        System.out.println("Anda telah selesai memasukkan nilai K.");
         System.out.println("Nilai K: " + k);
         System.out.println("");
-        KMeans kmeans = new KMeans();
-        kmeans.setK(k);
-    	kmeans.init(dataMula);
-    	kmeans.calculate();
+        System.out.println("Metode Clustering yang dapat dipilih:");
+        System.out.println("1. K-means");
+        System.out.println("2. Singgle Linkage");
+//        System.out.println("3. Centroid Linkage");
+//        System.out.println("4. Complete Linkage");
+//        System.out.println("5. Average Linkage");
+        System.out.print("Masukkan nomor metode:");
+//        int m = scan.nextInt();
+        int m = 2;
+        switch (m) {
+            case 1:
+                System.out.println("Metode K-Means");
+                KMeans kmeans = new KMeans();
+                kmeans.setK(k);
+                kmeans.init(dataMula);
+                kmeans.calculate();
+                break;
+            case 2:
+                System.out.println("Metode Singgle Linkage");
+                SingleLinkage singleLinkage = new SingleLinkage(dataMula, k);
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            default:
+                System.out.println("Inputan anda salah");
+                break;
+        }
+
     }
-    
+
 }
