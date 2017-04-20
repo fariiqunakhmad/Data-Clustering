@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import partitioning.Point;
-import static partitioning.Point.createRandomPoint;
 
 /**
  *
@@ -17,13 +16,9 @@ import static partitioning.Point.createRandomPoint;
  */
 public class KMeans {
 
-    //Number of Clusters. This metric should be related to the number of points
     private int K = 3;
-    //Number of Points
-//    private int NUM_POINTS = 15;
-    //Min and Max X and Y
     private static final int MIN_COORDINATE = 0;
-    private static final int MAX_COORDINATE = 10;
+    private static final int MAX_COORDINATE = 160;
 
     private List<Point> points;
     private List<Cluster> clusters;
@@ -55,13 +50,15 @@ public class KMeans {
 //        //Print Initial state
 //        plotClusters();
 //    }
+    public void setK(int K){
+        this.K=K;
+    }
     public void init(double[][] data) {
         points = new ArrayList(data.length);
         for (int i = 0; i < data.length; i++) {
             points.add(new Point(data[i][0], data[i][1]));
         }
 
-        //Create Clusters
         //membuat K centroid acak
         for (int i = 0; i < K; i++) {
             Cluster cluster = new Cluster(i);
@@ -160,17 +157,15 @@ public class KMeans {
             double sumX = 0;
             double sumY = 0;
             List<Point> list = cluster.getPoints();
-            int n_points = list.size();
-
+            int n = list.size();
             for (Point point : list) {
                 sumX += point.getX();
                 sumY += point.getY();
             }
-
             Point centroid = cluster.getCentroid();
-            if (n_points > 0) {
-                double newX = sumX / n_points;
-                double newY = sumY / n_points;
+            if (n > 0) {
+                double newX = sumX / n;
+                double newY = sumY / n;
                 centroid.setX(newX);
                 centroid.setY(newY);
             }

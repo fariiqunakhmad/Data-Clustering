@@ -63,12 +63,10 @@ public class DataClustering {
 //            System.out.println("Data " + (i + 1) + ": " + Arrays.toString(dataMula[i]));
 //        }
         
-        KMeans kmeans = new KMeans();
-    	kmeans.init(dataMula);
-    	kmeans.calculate();
+        
         
 //
-//        Scanner scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
 //        double[] dataTest = new double[dataMula[0].length - 1];
 //        System.out.println("");
 //        System.out.println("Masukkan Data Baru sebanyak " + (dataMula[0].length - 1) + " element!");
@@ -83,13 +81,17 @@ public class DataClustering {
 //        System.out.println("Data Baru: ");
 //        System.out.println(Arrays.toString(dataTest));
 //        System.out.println("");
-//        System.out.print("Masukkan nilai k:");
-//        int k = scan.nextInt();
+        System.out.print("Masukkan nilai K:");
+        int k = scan.nextInt();
 ////        int k = 3;
-//        System.out.println("");
-//        System.out.println("Anda telah selesai memasukkan nilai k.");
-//        System.out.println("Nilai k: " + k);
-//        System.out.println("");
+        System.out.println("");
+        System.out.println("Anda telah selesai memasukkan nilai k.");
+        System.out.println("Nilai K: " + k);
+        System.out.println("");
+        KMeans kmeans = new KMeans();
+        kmeans.setK(k);
+    	kmeans.init(dataMula);
+    	kmeans.calculate();
     }
     
 }
