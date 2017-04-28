@@ -20,7 +20,7 @@ public class SingleLinkage extends Linkage {
 
     public SingleLinkage(double[][] data, int K) {
         super(data, K);
-        calculate();
+        //calculate();
     }
 
 
