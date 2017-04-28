@@ -4,8 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Akhmad%20Fariiqun/Documents/NetBeansProjects/Data-Clustering/src/partitioning/Cluster.java</file>
-            <file>file:/C:/Users/Akhmad%20Fariiqun/Documents/NetBeansProjects/Data-Clustering/src/partitioning/Point.java</file>
+            <file>file:/C:/Users/Akhmad%20Fariiqun/Documents/NetBeansProjects/Data-Clustering/src/hierarchical/SingleLinkage.java</file>
+            <file>file:/C:/Users/Akhmad%20Fariiqun/Documents/NetBeansProjects/Data-Clustering/src/data/clustering/Distance.java</file>
+            <file>file:/C:/Users/Akhmad%20Fariiqun/Documents/NetBeansProjects/Data-Clustering/src/data/clustering/DataClustering.java</file>
+            <file>file:/C:/Users/Akhmad%20Fariiqun/Documents/NetBeansProjects/Data-Clustering/src/data/clustering/Cluster.java</file>
+            <file>file:/C:/Users/Akhmad%20Fariiqun/Documents/NetBeansProjects/Data-Clustering/src/hierarchical/Linkage.java</file>
+            <file>file:/C:/Users/Akhmad%20Fariiqun/Documents/NetBeansProjects/Data-Clustering/src/hierarchical/AllDataDistance.java</file>
             <file>file:/C:/Users/Akhmad%20Fariiqun/Documents/NetBeansProjects/Data-Clustering/src/partitioning/KMeans.java</file>
+            <file>file:/C:/Users/Akhmad%20Fariiqun/Documents/NetBeansProjects/Data-Clustering/src/data/clustering/Point.java</file>
         </group>
     </open-files>
 </project-private>
