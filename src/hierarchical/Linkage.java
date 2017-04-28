@@ -28,7 +28,7 @@ public class Linkage {
         points = new ArrayList(n);
         clusters = new ArrayList(n);
         pointDimension = data[0].length;
-        for (int i = 0; i < data.length; i++) {
+        for (int i = 0; i < n; i++) {
             points.add(new Point(data[i]));
             Cluster cluster = new Cluster(i);
             List<Point> clusterPoints = new ArrayList();
@@ -54,25 +54,9 @@ public class Linkage {
     }
 
     protected void assignCluster() {
-        double max = Double.MAX_VALUE;
-        double min = max;
-        int cluster = 0;
-        double distance = 0.0;
 
-        for (Point point : points) {
-            min = max;
-            for (int i = 0; i < K; i++) {
-                Cluster c = clusters.get(i);
-                distance = Point.distance(point, c.getCentroid());
-                System.out.println("Jarak " + point.toString() + " dengan Centroid " + i + " = " + distance);
-                if (distance < min) {
-                    min = distance;
-                    cluster = i;
-                }
-            }
-            point.setCluster(cluster);
-            clusters.get(cluster).addPoint(point);
-        }
+
+
     }
 
     protected void calculateCentroids() {
